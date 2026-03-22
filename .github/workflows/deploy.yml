@@ -45,3 +45,4 @@ jobs:
             phpunit.xml
             db/**
             docs/**
+            .github/**
