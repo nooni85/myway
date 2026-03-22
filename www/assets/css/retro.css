@@ -1,0 +1,121 @@
+:root {
+    --win-gray: #c0c0c0;
+    --win-white: #ffffff;
+    --win-dark: #808080;
+    --win-black: #000000;
+    --win-blue: #000080;
+    --win-bg: #008080; /* 클래식 윈도우 배경색 (Teal) */
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'MS Sans Serif', 'Tahoma', sans-serif;
+    image-rendering: pixelated;
+}
+
+body {
+    background-color: var(--win-bg);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* 윈도우 창 스타일 */
+.window {
+    background-color: var(--win-gray);
+    border: 2px solid;
+    border-color: var(--win-white) var(--win-black) var(--win-black) var(--win-white);
+    box-shadow: 1px 1px 0 0 var(--win-black);
+    width: 600px;
+    max-width: 95vw;
+}
+
+.window-title {
+    background: linear-gradient(90deg, var(--win-blue), #1084d0);
+    color: white;
+    padding: 3px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.window-body {
+    padding: 15px;
+}
+
+/* 입력창 및 버튼 베벨 효과 */
+.inset-border {
+    border: 2px solid;
+    border-color: var(--win-dark) var(--win-white) var(--win-white) var(--win-dark);
+    background-color: white;
+    padding: 10px;
+}
+
+input[type="text"], input[type="password"], textarea {
+    border: 2px solid;
+    border-color: var(--win-dark) var(--win-white) var(--win-white) var(--win-dark);
+    padding: 5px;
+    outline: none;
+    font-size: 14px;
+}
+
+button {
+    background-color: var(--win-gray);
+    border: 2px solid;
+    border-color: var(--win-white) var(--win-dark) var(--win-dark) var(--win-white);
+    padding: 5px 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:active {
+    border-color: var(--win-dark) var(--win-white) var(--win-white) var(--win-dark);
+}
+
+/* 플로피 디스크 감성 아이콘 (CSS로 구현) */
+.floppy-icon {
+    width: 32px;
+    height: 32px;
+    background-color: #333;
+    position: relative;
+    border-radius: 2px;
+    margin-right: 10px;
+}
+.floppy-icon::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    width: 24px;
+    height: 12px;
+    background-color: #eee;
+}
+
+/* 일기장 레이아웃 */
+.diary-container {
+    display: none; /* 로그인 전에는 숨김 */
+}
+
+.login-container {
+    text-align: center;
+}
+
+.status-bar {
+    border-top: 1px solid var(--win-dark);
+    padding: 2px 5px;
+    font-size: 12px;
+    display: flex;
+    gap: 10px;
+}
+
+.status-field {
+    border: 1px solid;
+    border-color: var(--win-dark) var(--win-white) var(--win-white) var(--win-dark);
+    padding: 0 5px;
+    min-width: 50px;
+}
