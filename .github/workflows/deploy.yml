@@ -24,7 +24,7 @@ jobs:
 
       # 2. PHPUnit 테스트 실행
       - name: Run PHPUnit
-        run: ./vendor/bin/phpunit
+        run: ./vendor/bin/phpunit tests
 
       # 3. 테스트 성공 시 FTP 배포 (SamKirkland/FTP-Deploy-Action 추천)
       - name: 🚚 Deploy to Cafe24
