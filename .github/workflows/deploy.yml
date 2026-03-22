@@ -16,7 +16,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1' # 카페24 서버 버전과 맞추는 것이 좋습니다.
+          php-version: '8.4' # 카페24 서버 버전과 맞추는 것이 좋습니다.
           extensions: mbstring, xml, ctype, iconv, mysql
 
       - name: Install Dependencies
