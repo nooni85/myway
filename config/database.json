@@ -1,6 +1,11 @@
 {
   "default": {
-    "driver": "pdo_sqlite",
-    "path": "db/myway_dev.sqlite"
+    "driver": "pdo_mysql",
+    "host": "localhost",
+    "port": 3306,
+    "dbname": "myway",
+    "user": "myway_user",
+    "password": "1234",
+    "charset": "utf8mb4"
   }
 }
