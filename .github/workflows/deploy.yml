@@ -60,3 +60,13 @@ jobs:
           dangerous-clean-slate: false
           local-dir: vendor/
           server-dir: /vendor/
+
+      - name: 🚚 Deploy assets to fragments
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          dangerous-clean-slate: false
+          local-dir: fragments/
+          server-dir: /fragments/
