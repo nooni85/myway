@@ -26,6 +26,10 @@ jobs:
       - name: Run PHPUnit
         run: ./vendor/bin/phpunit tests
 
+      - name: Re-install for Production
+        # 배포 직전에 dev 라이브러리(PHPUnit 등)를 제거하고 최적화
+        run: composer install --no-dev --optimize-autoloader
+
       - name: 🚚 Deploy src to www
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
