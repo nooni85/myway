@@ -33,7 +33,7 @@ jobs:
       - name: 🚚 Deploy src to www
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          server: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           dangerous-clean-slate: false
@@ -44,8 +44,8 @@ jobs:
       - name: 🚚 Deploy assets to www
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
+          server: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           dangerous-clean-slate: false
           local-dir: www/
@@ -54,19 +54,28 @@ jobs:
       - name: 🚚 Deploy assets to vendor
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
+          server: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
-          dangerous-clean-slate: false
           local-dir: vendor/
           server-dir: /vendor/
 
       - name: 🚚 Deploy assets to fragments
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
+          server: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           dangerous-clean-slate: false
           local-dir: fragments/
           server-dir: /fragments/
+
+      - name: Execute DB Migration via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            ./vendor/bin/doctrine-migrations migrate

@@ -1,3 +1,9 @@
+<?php
+use EdenProject\MyWay\Application;
+
+$app = new Application();
+
+?>
 <?php require_once __DIR__ . '/../fragments/header.php'; ?>
 
 <!-- 로그인 화면 -->

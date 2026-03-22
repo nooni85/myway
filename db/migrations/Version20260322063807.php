@@ -20,7 +20,7 @@ final class Version20260322063807 extends AbstractMigration
     public function up(Schema $schema): void
     {
         $table = $schema->createTable('users');
-        $table->addColumn('id', 'integer', ['autoincrement' => true]);
+        $table->addColumn('id', 'integer', ['autoincrement' => true, 'primary' => true]);
         $table->addColumn('name', 'string', ['length' => 255]);
         $table->addColumn('login_name', 'string', ['length' => 100, 'notnull' => true]);
         $table->addColumn('nick_name', 'string', ['length' => 100, 'notnull' => false]);
@@ -32,7 +32,6 @@ final class Version20260322063807 extends AbstractMigration
         $table->addColumn('created_at', 'datetime', ['default' => 'CURRENT_TIMESTAMP']);
         $table->addColumn('updated_at', 'datetime', ['default' => 'CURRENT_TIMESTAMP']);
 
-        $table->setPrimaryKey(['id']);
         $table->addUniqueIndex(['email']);
     }
 
