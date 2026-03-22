@@ -38,8 +38,8 @@ jobs:
           server-dir: / # 카페24의 웹 루트 디렉토리 (보통 /www/ 또는 /public_html/)
           dangerous-clean-slate: false
           exclude: |
-            **/.git*
-            **/node_modules/**
+            .git/**
+            node_modules/**
             config/**
             tests/**
             phpunit.xml
