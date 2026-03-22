@@ -1,6 +1,12 @@
 <?php
 // migrations-db.php
-return [
-    'driver' => 'pdo_sqlite',
-    'path' => __DIR__ . '/db/myway.sqlite',
-];
+
+use EdenProject\MyWay\Config\Config;
+
+$config = new Config("database");
+
+$development = $config->get("development");
+
+echo "Database: ".var_dump( $development);
+
+return $development;
