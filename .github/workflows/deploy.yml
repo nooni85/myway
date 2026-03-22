@@ -26,28 +26,22 @@ jobs:
       - name: Run PHPUnit
         run: ./vendor/bin/phpunit tests
 
-      # 3. 테스트 성공 시 FTP 배포
-      - name: 🚚 Deploy to Cafe24
-        if: success()
+      - name: 🚚 Deploy src to www
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
-          local-dir: ./
-          # 카페24는 보통 www 폴더가 웹 루트입니다.
+          local-dir: ./src/
+          server-dir: ./src/
+          # ... (생략) ...
+
+      # 두 번째 폴더 배포
+      - name: 🚚 Deploy assets to www
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./www/
           server-dir: ./www/
-          dangerous-clean-slate: false
-          exclude: |
-            **/.git*
-            **/.git/**
-            **/node_modules/**
-            **/config/**
-            **/tests/**
-            **/db/**
-            **/docs/**
-            **/.github/**
-            phpunit.xml
-            composer.json
-            composer.lock
