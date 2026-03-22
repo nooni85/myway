@@ -1,30 +1,10 @@
-<?php
-// 임시 세션 또는 로그인 로직은 향후 구현 예정
-?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
+    <?php require_once __DIR__ . '/../fragments/scripts.php'; ?>
     <title>MyWay Diary - 추억의 비밀 일기장</title>
-    <link rel="stylesheet" href="assets/css/retro.css">
-    <style>
-        /* 추가적인 인라인 스타일 */
-        .diary-entry {
-            width: 100%;
-            height: 300px;
-            margin-top: 10px;
-            resize: none;
-        }
-        .date-picker {
-            margin-bottom: 10px;
-        }
-        #bgm-status {
-            color: #000;
-        }
-    </style>
 </head>
 <body>
-
 <div class="window" id="main-window">
     <div class="window-title">
         <div style="display: flex; align-items: center;">
@@ -117,6 +97,7 @@
         }
     }
 </script>
-
+<?php require_once __DIR__ . '/../fragments/footer.php'; ?>
 </body>
+
 </html>
