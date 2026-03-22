@@ -35,4 +35,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./ # 배포할 로컬 디렉토리
-          server-dir: /www/ # 카페24의 웹 루트 디렉토리 (보통 /www/ 또는 /public_html/)
+          server-dir: / # 카페24의 웹 루트 디렉토리 (보통 /www/ 또는 /public_html/)
