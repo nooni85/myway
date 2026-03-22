@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../vendor/autoload.php';
+
 use EdenProject\MyWay\Application;
 
 $app = new Application();
